@@ -4,13 +4,17 @@ import ezbolt
 bolt_group = ezbolt.BoltGroup()
 
 # add bolts    
-bolt_group.add_bolts(xo=0, yo=0, width=3, height=6, nx=1, ny=3)
+ #bolt_group.add_bolts(xo=0, yo=0, width=3, height=6, nx=1, ny=3)
+bolt_group.add_bolt_single(2, 0.5)
+bolt_group.add_bolt_single(3, 0.0)
+bolt_group.add_bolt_single(2, 1.350)
+
 
 # preview geometry
 ezbolt.preview(bolt_group)
 
 # calculate bolt force with elastic method
-results = bolt_group.solve(Vx=0, Vy=-50, torsion=-100, bolt_capacity=17.9)
+results = bolt_group.solve(Vx=0, Vy=-10000, torsion=0, bolt_capacity=17.9)
 
 # plot bolt forces
 ezbolt.plot_elastic(bolt_group)
